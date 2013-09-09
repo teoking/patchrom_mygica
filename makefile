@@ -1,35 +1,31 @@
 #
-# Makefile for u8860
+# Makefile for lerom
 #
 
 # The original zip file, MUST be specified by each product
 local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
-local-out-zip-file := MIUI_u8860.zip
-
-#
-local-miui-modified-apps := MiuiHome Mms  Settings Phone ThemeManager
+local-out-zip-file := lerom_magica.zip
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := SettingsProvider ProjectMenuAct MediaProvider
+local-modified-apps := 
+
+local-modified-jars := framework2
 
 # All apks from MIUI
-local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth
+local-miui-removed-apps := 
 
-# All apps need to be removed from original ZIP file
-local-phone-apps := ApplicationsProvider BackupRestoreConfirmation Bluetooth BluetoothServices CertInstaller \
-	DefaultContainerService FaceLock HTMLViewer HwBluetoothImport HwCamera HwFMRadio HwSoundRecorder \
-	HwWiFiHotspot KeyChain MediaProvider LiveWallpapers LiveWallpapersPicker MMITest_II MMITest_record OMACP \
-	PrivInit ProjectMenuAct SettingsProvider SharedStorageBackup Stk \
-	WAPPushManager UserDictionaryProvider
+local-miui-modified-apps := 
+
+include boxapps.mk
 
 # To include the local targets before and after zip the final ZIP file, 
-# and the local-targets should: 
+# and the local-targets should:
 # (1) be defined after including porting.mk if using any global variable(see porting.mk)
 # (2) the name should be leaded with local- to prevent any conflict with global targets
-local-pre-zip := local-zip-misc
-local-after-zip:=
+local-pre-zip := local-pre-zip-misc
+local-after-zip:= local-put-to-phone
 
 # The local targets after the zip file is generated, could include 'zip2sd' to 
 # deliver the zip file to phone, or to customize other actions
@@ -37,16 +33,19 @@ local-after-zip:=
 include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
-local-zip-misc:
-	#rm -rf $(ZIP_DIR)/system/cdrom
-#	rm $(ZIP_DIR)/system/bin/su
-	rm -rf $(ZIP_DIR)/system/bin/cust
-	cp other/build-b923.prop $(ZIP_DIR)/system/build.prop
-	cp other/HuaWeiSettings.apk $(ZIP_DIR)/system/app/
-	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
-	cp other/HwFMRadio.apk $(ZIP_DIR)/system/app/
-	cp other/boot-b919-rooted.img $(ZIP_DIR)/boot.img
+local-pre-zip-misc:
+	#cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
+	cp other/build.prop $(ZIP_DIR)/system/build.prop
+	#cp other/AxT9IME.apk $(ZIP_DIR)/system/app
+	#rm -rf $(ZIP_DIR)/system/csc
 
-	@echo update bootanimation
-	rm $(ZIP_DIR)/system/bin/bootanimation
-	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+local-rom-zip := lerom_magica.zip
+local-put-to-phone:
+	adb shell rm /sdcard/$(local-rom-zip)
+	adb push out/$(local-rom-zip) /sdcard/
+	adb reboot recovery
+
+local-ota-update:
+	rm $(ZIP_DIR)/system/app/SuperMarket.apk
+	rm $(ZIP_DIR)/system/app/Gallery2.apk
+	
